@@ -4,11 +4,15 @@ import Alerta from "../Alerta";
 import logo from "../../assets/logo.svg";
 import "./login.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createSlice } from "@reduxjs/toolkit"
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alerta, setAlerta] = useState({});
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +33,28 @@ const Login = () => {
       return;
     }
     setAlerta({});
+    try {
+      const { data } = await axios.post("http://localhost:4000/api/user/login", {
+        email,  
+        password,
+      });
+      setAlerta({
+        // aca extraemos el error que viene desde el servidor
+        msg: data.msg,
+        error: false
+      });
+      dispatch(createSlice.actions.setUser({    
+        userID : data._id,
+        email: data.email,
+        token: data.token,
+        isLogged: true}))
+    } catch (error) {
+      setAlerta({
+        // aca extraemos el error que viene desde el servidor
+        msg: error.response.data.msg,
+        error: true
+      });
+    }
   };
   const { msg } = alerta;
   return (
