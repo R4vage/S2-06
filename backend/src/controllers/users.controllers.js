@@ -54,6 +54,7 @@ const authenticate = async (req, res, next) => {
 
   // comprobar su password
   if (await user.comprobarPassword(password)) {
+    console.log(user)
     // si retorno el usuario me retorna mucha info que no necesito como la password
     return res.json({
       _id: user._id,
@@ -61,6 +62,7 @@ const authenticate = async (req, res, next) => {
       email: user.email,
       token: createJWT(user._id) // para comprobar la password le mandamos un token
     });
+   
   } else {
     const error = new Error("Your password is incorrect");
     return res.status(400).json({ msg: error.message });
@@ -146,4 +148,14 @@ const newToken = async (req, res) => {
   }
 };
 
-export { createNewUser, authenticate, confirmed, forgotPassword, checkToken, newToken };
+
+const profile = async (req, res) => {
+  const {user, logged} = req;
+  console.log(user)
+  const fullUser = await User.findById(user._id).select("-password -token -isDeleted -confirmed  -updatedAt -__v")
+  console.log(user._id)
+  console.log("logged in profile =" + logged)
+  res.json(fullUser)
+};
+
+export { createNewUser, authenticate, confirmed, forgotPassword, checkToken, newToken, profile };
