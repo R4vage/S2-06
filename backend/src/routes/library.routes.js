@@ -6,10 +6,10 @@ import {
 
 
 
-const routerLibrary = express.Router();
 
 /* router.post("/", addGame);*/
 routerLibrary.get("/", checkAuth, getLibrary); 
+
 
 
 export default routerLibrary;

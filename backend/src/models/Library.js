@@ -5,7 +5,7 @@ const librarySchema = mongoose.Schema({
     {
       productId: {
         type: Number,
-        unique: true,
+        unique: false,
       },
     },
   ],

@@ -6,23 +6,23 @@ import Home from "../pages/Home";
 import UserLogin from "../pages/UserLogin";
 import UserRegister from "../pages/UserRegister";
 import NewPassword from "../pages/NewPassword";
-
-
+import Footer from "../components/Footer";
 
 function PublicRouter() {
-    return (
-        <>
-            <Navbar/>
-            <Routes>
-                    <Route path="/" element={<Home />}/>
-                    <Route exact match path="/login" element= {<UserLogin />}/>
-                    <Route path="/register" element= {<UserRegister/>}/>
-                    <Route path="/forgot" element= {<ForgotPassword />}/>
-                    <Route path="/confirmed/:token" element= {<Confirmed />}/>
-                    <Route path="/forgot/:token" element={<NewPassword />}></Route>
-            </Routes>
-        </> 
-     );
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route exact match path="/login" element={<UserLogin />} />
+        <Route path="/register" element={<UserRegister />} />
+        <Route path="/forgot" element={<ForgotPassword />} />
+        <Route path="/confirmed/:token" element={<Confirmed />} />
+        <Route path="/forgot/:token" element={<NewPassword />}></Route>
+      </Routes>
+      <Footer />
+    </>
+  );
 }
 
 export default PublicRouter;
