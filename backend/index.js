@@ -8,7 +8,7 @@ import routerLibrary from "./src/routes/library.routes.js";
 
 const app = express();
 
-dotenv.config({ path: "./config.env" });
+dotenv.config({ path: "./.env" });
 
 app.use(express.json());
 
