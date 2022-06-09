@@ -3,12 +3,17 @@ import { useState } from "react";
 import Alerta from "../Alerta";
 import logo from "../../assets/logo.svg";
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { loginSlice } from "../../store";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alerta, setAlerta] = useState({});
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +34,31 @@ const Login = () => {
       return;
     }
     setAlerta({});
+    try {
+      const { data } = await axios.post("http://localhost:4000/api/user/login", {
+        email,  
+        password,
+      });
+      dispatch(loginSlice.actions.setUser({    
+        userID : data._id,
+        email: data.email,
+        token: data.token,
+        isLogged: true}))
+      console.log(data)
+      navigate("/private/")
+      setAlerta({
+        // aca extraemos el error que viene desde el servidor
+        msg: data.msg,
+        error: false
+      });
+
+    } catch (error) {
+      setAlerta({
+        // aca extraemos el error que viene desde el servidor
+        msg: error.response.data.msg,
+        error: true
+      });
+    }
   };
   const { msg } = alerta;
   return (

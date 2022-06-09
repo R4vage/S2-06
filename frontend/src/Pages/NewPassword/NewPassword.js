@@ -45,7 +45,7 @@ function NewPassword() {
       try {
         const { data } = await axiosDB.post(
           `/user/forgot-password/${token.token}`,
-          { password } // Este email es lo que espera el backend, lo puedo ver en Postaman
+          { password } 
         );
         setAlerta({
           msg: data.msg,

@@ -43,32 +43,3 @@ function Confirmed() {
 }
 
 export default Confirmed;
-
-/* const [alerta, setAlerta] = useState({});
-  const [cuentaConfirmada, setCuentaConfirmada] = useState(false); // arranca en false hasta hacer el llamado a la Api
-  // tenemos que leer el id que viene por url
-  const params = useParams();
-  const { token } = params;
-
-  console.log(params);
-
-  useEffect(() => {
-    const confirmarCuenta = async () => {
-      try {
-        const url = `http://localhost:4000/api/user/confirmed/${token}`;
-        const { data } = await axios(url);
-        // en caso de que valido correctamente la cuenta
-        setAlerta({
-          msg: data.msg,
-          error: false,
-        });
-        setCuentaConfirmada(true);
-      } catch (error) {
-        setAlerta({
-          msg: error.response.data.msg,
-          error: true,
-        });
-      }
-    };
-    confirmarCuenta();
-  }, []); */
