@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import logo from "../../Assets/logo.svg";
-import portrait from "../../Assets/portrait.svg";
-import userIcon from "../../Assets/icons/userIcon.svg";
-import supportIcon from "../../Assets/icons/supportIcon.svg";
-import communityIcon from "../../Assets/icons/communityIcon.svg";
-import storeIcon from "../../Assets/icons/storeIcon.svg";
+import logo from "../../assets/logo.svg";
+import portrait from "../../assets/portrait.svg";
+import userIcon from "../../assets/icons/userIcon.svg";
+import supportIcon from "../../assets/icons/supportIcon.svg";
+import communityIcon from "../../assets/icons/communityIcon.svg";
+import storeIcon from "../../assets/icons/storeIcon.svg";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 

@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { axiosDB } from "../../services/axiosDB";
-import logo from "../../Assets/logo.svg";
+import logo from "../../assets/logo.svg";
 
 function NewPassword() {
   const [password, setPassword] = useState("");

@@ -1,12 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Confirmed from "../Pages/Confirmed";
-// import ForgotPassword from "../pages/ForgotPassword";
-import ForgotPassword from "../Pages/ForgotPassword";
-import Home from "../Pages/Home";
-import UserLogin from "../Pages/UserLogin";
-import UserRegister from "../Pages/UserRegister";
-import NewPassword from "../Pages/NewPassword";
+import Confirmed from "../pages/Confirmed";
+import ForgotPassword from "../pages/ForgotPassword";
+import Home from "../pages/Home";
+import UserLogin from "../pages/UserLogin";
+import UserRegister from "../pages/UserRegister";
+import NewPassword from "../pages/NewPassword";
 import Footer from "../components/Footer";
 
 function PublicRouter() {

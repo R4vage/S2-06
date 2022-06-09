@@ -1,10 +1,10 @@
 import React from "react";
 import "./footer.css";
-import logo from "../../Assets/logo.svg";
-import phone from "../../Assets/icons/phone.svg";
-import email from "../../Assets/icons/email.svg";
-import facebook from "../../Assets/icons/facebook.svg";
-import twiter from "../../Assets/icons/twiter.svg";
+import logo from "../../assets/logo.svg";
+import phone from "../../assets/icons/phone.svg";
+import email from "../../assets/icons/email.svg";
+import facebook from "../../assets/icons/facebook.svg";
+import twiter from "../../assets/icons/twiter.svg";
 
 const Footer = () => {
   return (

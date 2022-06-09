@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import { transportVar } from "./transportVar.js";
+import { transportVar } from "./.transportVar.js";
 
 export const emailToken = async (user) => {
   const { email, name, token } = user;

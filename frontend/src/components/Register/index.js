@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Alerta from "../Alerta";
 import axios from "axios";
-import logo from "../../Assets/logo.svg";
+import logo from "../../assets/logo.svg";
 import "./register.css";
 const Register = () => {
   const [name, setName] = useState("");

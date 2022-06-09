@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Alerta from "../../components/Alerta";
-import logo from "../../Assets/logo.svg";
+import logo from "../../assets/logo.svg";
 import "../../components/Login/login.css";
 import { axiosDB } from "../../services/axiosDB";
 
