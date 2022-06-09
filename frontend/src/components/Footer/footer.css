@@ -5,12 +5,17 @@
   display: none;
 }
 
+
+
 @media (min-width: 768px) {
   .container-footer {
     background-color: #0b0d17;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    bottom: 0;
+    position: absolute;
+    width: 100vw;
   }
   .logo .image-footer {
     width: 100%;
