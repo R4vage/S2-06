@@ -2,7 +2,12 @@ import mongoose from "mongoose";
 
 const librarySchema = mongoose.Schema({
   product: [
-    
+    {
+      productId: {
+        type: Number,
+        unique: false,
+      },
+    },
   ],
   userID: {
     type: String,
