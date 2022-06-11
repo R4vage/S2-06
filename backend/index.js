@@ -5,6 +5,7 @@ import cors from "cors";
 import globalErrorHandler from "./src/middleware/error.middleware.js";
 import router from "./src/routes/user.routes.js";
 import routerLibrary from "./src/routes/library.routes.js";
+import routerSteam from "./src/routes/steam.routes.js";
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use(cors(corsOption));
 
 app.use("/api/user", router);
 app.use("/api/library", routerLibrary);
+app.use("/api/games", routerSteam);
 
 // Setting
 app.set("port", 4000);
