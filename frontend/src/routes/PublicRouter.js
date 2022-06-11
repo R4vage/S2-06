@@ -7,6 +7,7 @@ import UserLogin from "../pages/UserLogin";
 import UserRegister from "../pages/UserRegister";
 import NewPassword from "../pages/NewPassword";
 import Footer from "../components/Footer";
+import View from "../pages/View";
 
 function PublicRouter() {
   return (
@@ -19,6 +20,7 @@ function PublicRouter() {
         <Route path="/forgot" element={<ForgotPassword />} />
         <Route path="/confirmed/:token" element={<Confirmed />} />
         <Route path="/forgot/:token" element={<NewPassword />}></Route>
+        <Route path="/:steamAppId" element={<View />}></Route>
       </Routes>
       <Footer />
     </>

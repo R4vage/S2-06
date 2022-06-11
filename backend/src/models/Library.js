@@ -3,9 +3,9 @@ import mongoose from "mongoose";
 const librarySchema = mongoose.Schema({
   product: [
     {
-      productId: {
+        gameID:{
         type: Number,
-        unique: false,
+        required:true
       },
     },
   ],

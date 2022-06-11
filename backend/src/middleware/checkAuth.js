@@ -14,6 +14,7 @@ export default async function checkAuth( req, res, next) {
             const decoded = jwt.verify(token, process.env.JWT_SECRET)
             req.logged = true
             req.user = await User.findById(decoded.id).select("-password -token -isDeleted -confirmed -birthday -createdAt -updatedAt -__v")
+            if (!req.user){return res.status(404).json({msg: "Habemus cagada, el usuario que creo este token no existe mas"})}
             return next()
 
          } catch (error) {
