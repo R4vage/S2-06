@@ -20,6 +20,22 @@ function PrivateHome() {
         setAlert({ msg: error.response.data.msg, error: true });
       }
     };
+    const addGameClick = async () => {
+      try {
+      const { data } = await axiosDB.post(
+        `/library`, 
+      {
+        gameID: 123456,  
+      },
+      setHeaders());
+       
+          console.log(data)
+         
+        } catch (error) {
+          setAlert({ msg: error.response.data.msg, error: true });
+        }
+      };
+    
   
     useEffect(() => {
         getLibrary();
@@ -29,6 +45,7 @@ function PrivateHome() {
     return ( 
     <div>
         PrivateHome
+        <button onClick={()=>addGameClick()}>Add Game</button>
     </div> );
 }
 

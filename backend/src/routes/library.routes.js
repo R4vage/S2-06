@@ -1,6 +1,7 @@
 import express from "express";
 import checkAuth from "../middleware/checkAuth.js";
 import {
+    addGame,
     getLibrary
   } from "../controllers/library.controllers.js";
 
@@ -8,7 +9,7 @@ import {
 
 const routerLibrary = express.Router();
 
-/* router.post("/", addGame);*/
+routerLibrary.post("/",checkAuth, addGame);
 routerLibrary.get("/", checkAuth, getLibrary); 
 
 

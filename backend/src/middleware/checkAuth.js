@@ -27,6 +27,6 @@ export default async function checkAuth( req, res, next) {
         res.status(401).json({msg: error.message})
         console.log("fallo el auth")
     }
-    next()
+
 };
 
