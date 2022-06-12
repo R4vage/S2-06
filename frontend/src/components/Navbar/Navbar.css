@@ -1,3 +1,8 @@
+.pusher{
+  visibility:hidden ;
+  height: 4em;
+}
+
 .Navbar{
     height: 4em;
     background-color: FFFFFF;
@@ -5,7 +10,11 @@
     align-items: center;
     justify-content: space-around;
     box-shadow: 0px 3px rgba(156, 155, 155, 0.555);
-    position: sticky;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    top: 0;
+    background-color: white;
 }
 
 /* Hamburger */
@@ -14,7 +23,7 @@
     cursor: pointer;
     padding: 1em;
     display: flex;
-    position: absolute;
+    position: fixed;
     left: 0;
     z-index: 200;
     transition: all 845ms ease-in-out;
@@ -68,7 +77,7 @@
     opacity: 0;
     width: 100vw;
     transform: translateX(-100vw);
-    position: absolute;
+    position: fixed;
     background-color: white;
     height: 100vh;
     transition: all 800ms ease-in-out;
@@ -84,6 +93,7 @@
     opacity: 100%;
     display: flex;
     flex-direction: column;
+    z-index: 100;
 }
 .Navbar--userData{
     margin: 2em;
@@ -92,6 +102,7 @@
     align-items: flex-start;
     align-self: center;
     width: 80vw;
+    z-index: 100;
 }
 .Navbar--userData p{
     margin: 0.5em;
@@ -116,6 +127,7 @@ text-decoration: underline;
     width: 80vw;
     font-size: 1.25rem;
     padding: 0;
+    z-index: 100;
 }
 
 .Navbar--list li{
@@ -125,6 +137,7 @@ text-decoration: underline;
     gap: 1em;
     padding: 0.5em;
     cursor: pointer;
+    z-index: 100;
 }
 
 
