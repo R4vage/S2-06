@@ -8,7 +8,7 @@ function Carousel(props) {
     const handleDragStart = (e) => e.preventDefault();
     console.log(imgArray)
 
-    const items = imgArray.map(img => <img src={img.path_full} onDragStart={handleDragStart} role="presentation" />,) ;
+    const items = imgArray.map(img => <img src={img.path_full} onDragStart={handleDragStart}  key={img.id} alt={img.id}/>,) ;
       console.log(items)
     return (
         <div className="carousel">
