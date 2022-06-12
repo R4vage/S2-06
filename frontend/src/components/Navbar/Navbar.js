@@ -11,6 +11,8 @@ import { Link } from "react-router-dom"
 function Navbar() {
     const [isClosed, setIsClosed] = useState(true)
     return ( 
+    <>
+    <div className="pusher"></div>
     <header className="Navbar">
             <div className={isClosed? "Navbar--hamburger__container": "Navbar--hamburger__container conOpen"} onClick={()=>setIsClosed(!isClosed)}><span className= "Navbar--hamburger" > </span></div>
             <nav className={isClosed?"Navbar--toggle":"Navbar--toggle navOpen"}>
@@ -27,7 +29,8 @@ function Navbar() {
                 </ul>
             </nav>
             <img src={logo} className="Navbar--logo" alt="Logo"/>
-    </header> );
+    </header>
+    </> );
 }
 
 export default Navbar;

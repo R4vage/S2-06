@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { axiosDB, axiosSteam } from "../../services";
+import Carousel from "../../components/Carousel/Carousel";
+import { axiosDB } from "../../services";
 
 import "./View.css"
 
@@ -22,23 +23,14 @@ function View() {
       };
       useEffect(() => {
         getGameData()
-      }, [])
-      function getDescription (raw){
-        raw.substring(0, raw.length-2)
-      }
-      const fullDescription = () => getDescription(gameData?.detailed_description)
-      console.log(fullDescription)
-      console.log(gameData?.detailed_description.substring(0, gameData.detailed_description.length))
-
-
-      
+      }, [])      
       if(!gameData){return <div> No hay juego</div>}
     return ( 
         <>
             <h1>{gameData.name}</h1>
             <h3>{gameData.type}</h3>
-            <img src={gameData?.screenshots[0].path_full}/>
-            <div className="dangerouslyFather" dangerouslySetInnerHTML={{__html: gameData.detailed_description}}>{}</div>
+            <Carousel imgArray={gameData.screenshots}/>
+            <div className="dangerouslyFather" dangerouslySetInnerHTML={{__html: gameData.detailed_description}}></div>
         
         </> 
      );
