@@ -1,0 +1,17 @@
+.container-deals {
+  background-color: #0c1e20;
+}
+
+.container-dealsCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.text-DealsCard {
+  background-color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-left: 1em;
+  padding: 0.5em;
+  border-radius: 5px;
+}

@@ -1,10 +1,14 @@
-import "./Home.css"
+import "./Home.css";
+import DealsCard from "../../components/DealCards";
+import RatingCard from "../../components/RatingCard";
 
 function Home() {
-    return ( 
+  return (
     <div className="Home">
-        Hello Home
-    </div> );
+      <DealsCard />
+      <RatingCard />
+    </div>
+  );
 }
 
 export default Home;
