@@ -1,0 +1,50 @@
+.conteiner-Card {
+  border: solid black 2px;
+  margin: 15px;
+  border-radius: 5px;
+  box-shadow: 2px 3px 5px #888888;
+  width: 250px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-card {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2px;
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0.5em;
+}
+.details {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  text-align: center;
+}
+.price {
+  color: #888888;
+  border-radius: 5px;
+  padding: 0.5em;
+  text-decoration: line-through;
+}
+.discount {
+  background-color: #0da0b2;
+
+  border-radius: 5px;
+  padding: 0.5em;
+}
+.percentage {
+  background-color: #32cd32;
+
+  border-radius: 5px;
+  padding: 0.5em;
+}
+
+.img {
+  max-width: 100%;
+}
