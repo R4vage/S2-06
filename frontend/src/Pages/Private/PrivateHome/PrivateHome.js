@@ -20,6 +20,7 @@ function PrivateHome() {
         setAlert({ msg: error.response.data.msg, error: true });
       }
     };
+    
     const addGameClick = async () => {
       try {
       const { data } = await axiosDB.post(

@@ -20,7 +20,7 @@ function PublicRouter() {
         <Route path="/forgot" element={<ForgotPassword />} />
         <Route path="/confirmed/:token" element={<Confirmed />} />
         <Route path="/forgot/:token" element={<NewPassword />}></Route>
-        <Route path="/:steamAppId" element={<View />}></Route>
+        <Route path="/games/:steamAppId" element={<View />}></Route>
       </Routes>
       <Footer />
     </>
