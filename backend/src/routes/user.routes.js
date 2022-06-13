@@ -7,7 +7,8 @@ import {
   forgotPassword,
   newToken,
   checkToken,
-  profile
+  profile,
+  changeProfile
 } from "../controllers/users.controllers.js";
 import checkAuth from "../middleware/checkAuth.js";
 
@@ -19,8 +20,8 @@ router.get("/confirmed/:token", confirmed);
 router.post("/forgot-password", forgotPassword);
 router.get("/forgot-password/:token", checkToken);
 router.post("/forgot-password/:token", newToken);
-
-router.get("/profile", checkAuth, profile)
+router.get("/profile", checkAuth, profile);
+router.put("/profile/change", checkAuth, changeProfile);
 
 
 
