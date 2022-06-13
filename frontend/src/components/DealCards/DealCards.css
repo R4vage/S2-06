@@ -15,3 +15,21 @@
   padding: 0.5em;
   border-radius: 5px;
 }
+.container-arrowHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 3em;
+}
+.container-arrow {
+  display: flex;
+  gap: 0.5em;
+}
+.arrow {
+  all: none;
+  border: none;
+  background-color: black;
+  font-size: 20px;
+  color: white;
+  border-radius: 50px;
+}
