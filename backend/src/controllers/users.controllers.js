@@ -158,4 +158,26 @@ const profile = async (req, res) => {
   res.json(fullUser)
 };
 
-export { createNewUser, authenticate, confirmed, forgotPassword, checkToken, newToken, profile };
+const changeProfile = async (req, res) => {
+  const {user, logged} = req;
+  const {name, userName, birthday } = req.body;
+  console.log("We got to controller profile" + name)
+  const fullUser = await User.findById(user._id)
+  console.log(name + fullUser.name + userName + fullUser.userName + birthday + fullUser.birthday)
+  if (name === fullUser.name && userName === fullUser.userName /* && birthday === fullUser.birthday */){
+    return res.status(400).json({ msg: "No changes" });
+  }
+  fullUser.name = name || fullUser.name
+  fullUser.userName = userName || fullUser.userName
+  fullUser.birthday = birthday || fullUser.birthday
+  try {
+    await fullUser.save();
+    res.json({ msg: "Your data has been modified succesfully" });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ msg: "We couldn't modify your data, please contact support" });
+  }
+
+};
+
+export { createNewUser, authenticate, confirmed, forgotPassword, checkToken, newToken, profile, changeProfile };
