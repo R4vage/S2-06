@@ -7,6 +7,11 @@ const librarySchema = mongoose.Schema({
         type: Number,
         required:true
       },
+
+      gameName:{
+        type: String,
+        required:true
+      },
     },
   ],
   userID: {

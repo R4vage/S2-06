@@ -4,12 +4,14 @@ import AliceCarousel from 'react-alice-carousel';
 
 
 function Carousel(props) {
-    const {imgArray} = props
+    const {imgArray, movieArray} = props
     const handleDragStart = (e) => e.preventDefault();
-    console.log(imgArray)
 
-    const items = imgArray.map(img => <img src={img.path_full} onDragStart={handleDragStart}  key={img.id} alt={img.id}/>,) ;
-      console.log(items)
+
+    const items =  []
+    movieArray?.map(movie => items.push(<video src={movie.mp4.max} controls poster={movie.thumbnail}></video>))
+    imgArray?.map(img => items.push(<img src={img.path_full} onDragStart={handleDragStart}  key={img.id} alt={img.id}/>)) ;
+
     return (
         <div className="carousel">
         <AliceCarousel mouseTracking items={items} />

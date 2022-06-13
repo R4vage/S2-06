@@ -5,7 +5,8 @@ const initialState = localStorage.getItem("loginState")? JSON.parse(localStorage
     userID : null,
     email: null,
     token: null,
-    isLogged: false
+    isLogged: false,
+    gamesArray:[]
 }
 
 export const loginSlice = createSlice({
@@ -18,15 +19,21 @@ export const loginSlice = createSlice({
         
         signOut: (state, action) =>{
             localStorage.removeItem("loginState");
-            return({
+            return{
+                gamesArray:[],
                 userID : null,
                 email: null,
                 token: null,
-                isLogged: false
-            })
-
-        }
-
+                isLogged: false,
+                
+            }
+        },
+        setLibrary: (state,action) =>{
+            return{
+                ...state,
+                gamesArray: action.payload
+            }
+        },
 
     }
 

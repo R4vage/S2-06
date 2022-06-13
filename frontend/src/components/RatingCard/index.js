@@ -12,6 +12,7 @@ const DealsCard = () => {
         "https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=5&pageNumber=1&sortBy=metacritic";
 
       const { data } = await axios(url);
+      console.log(data)
 
       setGameRating(data);
     };
@@ -31,7 +32,7 @@ const DealsCard = () => {
               salePrice={item.salePrice}
               normalPrice={item.normalPrice}
               savings={item.savings}
-              steamApiId={item.steamApiId}
+              steamAppID={item.steamAppID}
             />
           ))}
         </div>

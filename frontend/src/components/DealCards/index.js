@@ -14,7 +14,6 @@ const DealsCard = () => {
       const { data } = await axios(url);
 
       setGameDeals(data);
-      console.log(gameDeals);
     };
     consultarApi();
   }, []);
@@ -32,7 +31,7 @@ const DealsCard = () => {
               salePrice={item.salePrice}
               normalPrice={item.normalPrice}
               savings={item.savings}
-              steamApiId={item.steamApiId}
+              steamAppID={item.steamAppID}
             />
           ))}
         </div>

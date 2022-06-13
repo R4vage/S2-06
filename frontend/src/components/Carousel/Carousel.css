@@ -1,6 +1,6 @@
 @import "react-alice-carousel/lib/alice-carousel.css";
 
-.carousel img{
+.carousel img, .carousel video{
     border-radius: 8px;
     width: 45%;
     margin-left:28%;
