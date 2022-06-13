@@ -6,8 +6,7 @@
   background-position: center center;
   margin: auto;
   text-align: center;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  margin-block: 10vh;
   border-radius: 25px;
   padding: 2em;
 }

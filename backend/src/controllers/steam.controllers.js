@@ -4,7 +4,7 @@ export const getFullGameInfo = async (req, res) => {
 
     const { gameID } = req.params; // extraemos el gameID que viene de la url
     console.log(gameID)
-    const url = `https://store.steampowered.com/api/appdetails?appids=${gameID}`
+    const url = `https://store.steampowered.com/api/appdetails?appids=${gameID}&cc=US`
     axios.get(url)
     .then(response => {
         console.log(response.data);

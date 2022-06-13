@@ -43,7 +43,8 @@ const Login = () => {
         userID : data._id,
         email: data.email,
         token: data.token,
-        isLogged: true}))
+        isLogged: true,
+        gamesArray:[]}))
       console.log(data)
       navigate("/private/")
       setAlerta({

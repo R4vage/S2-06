@@ -28,6 +28,11 @@
 .hidden {
   visibility: hidden;
 }
+
+.profile-email{
+  color: whitesmoke;
+}
+
 .profile-form {
   margin-top: 1em;
   padding: 1em;
