@@ -14,8 +14,10 @@
     justify-content: space-around;
     align-items: center;
     bottom: 0;
-    margin: auto;
+    margin-top: auto;
     z-index: 0;
+    position: relative;
+    width: 100%;
   }
   .logo .image-footer {
     width: 100%;

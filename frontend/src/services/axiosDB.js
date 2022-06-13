@@ -6,7 +6,6 @@ export const axiosDB = axios.create({
 
 export const setHeaders = () => {
   const user = JSON.parse(localStorage.getItem("loginState"))
-  console.log(user)
     const headers = {
       headers: {
         "authorization": "Bearer " + user.token,

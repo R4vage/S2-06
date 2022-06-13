@@ -22,10 +22,10 @@ function Navbar() {
                     <p className="Navbar--userEmail">nombredeusuario@gmail.com</p>
                 </div>
                 <ul className="Navbar--list">
-                    <Link to={"/login"}> <li > <img src={userIcon} alt="userIcon" />Login</li></Link>
-                    <li > <img src={supportIcon} alt="Store"/>Store</li>
-                    <li > <img src={communityIcon} alt="Community Icon"/>Community</li>
-                    <li > <img src={storeIcon} alt="Support Icon"/>Support</li>
+                    <Link to={"/login"} onClick={()=>setIsClosed(!isClosed)}> <li > <img src={userIcon} alt="userIcon" />Login</li></Link>
+                    <Link to={"/"} onClick={()=>setIsClosed(!isClosed)}><li onClick={()=>setIsClosed(!isClosed)}> <img src={supportIcon} alt="Store"/>Store</li></Link>
+                    <li onClick={()=>setIsClosed(!isClosed)}> <img src={communityIcon} alt="Community Icon"/>Community</li>
+                    <li onClick={()=>setIsClosed(!isClosed)}> <img src={storeIcon} alt="Support Icon"/>Support</li>
                 </ul>
             </nav>
             <img src={logo} className="Navbar--logo" alt="Logo"/>
