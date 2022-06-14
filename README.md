@@ -1,4 +1,4 @@
-# Nombre del Proyecto: **Game Games**
+# Nombre del Proyecto: **Gama Games**
 
 ## **Descripción del Proyecto:**
 
@@ -36,5 +36,5 @@
 - Nataly Leones Aguiar <img alt='bandera-argentina' src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/800px-Flag_of_Argentina.svg.png?20120912082242' width="15" height="10" style="max-width: 100%;" /> <br>
   <a href="https://www.linkedin.com/in/na-leones-aguiar/" rel="nofollow"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/m-l-castro/" height="20" width="20" style="max-width: 100%;"></a>&nbsp;<a href="https://github.com/mlcas" rel="nofollow"><img align="center" src="https://animejs.com/documentation/assets/img/icons/icon-github.svg" alt="@mlcas" height="30" width="30" style="max-width: 100%;"></a>
 
-  - Martin Castro <img alt='bandera-argentina' src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/800px-Flag_of_Argentina.svg.png?20120912082242' width="15" height="10" style="max-width: 100%;" /> <br>
-    <a href="https://www.linkedin.com/in/m-l-castro/" rel="nofollow"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/m-l-castro/" height="20" width="20" style="max-width: 100%;"></a>&nbsp;<a href="https://github.com/mlcas" rel="nofollow"><img align="center" src="https://animejs.com/documentation/assets/img/icons/icon-github.svg" alt="@mlcas" height="30" width="30" style="max-width: 100%;"></a>
+- Martin Castro <img alt='bandera-argentina' src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/800px-Flag_of_Argentina.svg.png?20120912082242' width="15" height="10" style="max-width: 100%;" /> <br>
+  <a href="https://www.linkedin.com/in/m-l-castro/" rel="nofollow"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/m-l-castro/" height="20" width="20" style="max-width: 100%;"></a>&nbsp;<a href="https://github.com/mlcas" rel="nofollow"><img align="center" src="https://animejs.com/documentation/assets/img/icons/icon-github.svg" alt="@mlcas" height="30" width="30" style="max-width: 100%;"></a>
