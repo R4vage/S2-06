@@ -7,7 +7,7 @@ const Card = (props) => {
 const navigate = useNavigate()
 const userGames = useSelector((state) => state.gamesArray);
 var isOwned = false
-if(userGames.length !==0) { isOwned = !!userGames.find(item => item.gameID === Number(props.steamAppID));}
+if(userGames?.length !==0) { isOwned = !!userGames?.find(item => item.gameID === Number(props.steamAppID));}
 
 
   function onClick (){
