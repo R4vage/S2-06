@@ -13,14 +13,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [alerta, setAlerta] = useState({});
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // validando que todos los campos se completen
     if ([email, password].includes("")) {
       setAlerta({
-        msg: "Todos los campos son obligatorios",
+        msg: "All fields are required",
         error: true
       });
       return;
@@ -28,7 +28,7 @@ const Login = () => {
 
     if (password.length < 6) {
       setAlerta({
-        msg: "Las contraseña tiene que ser de mas de 6 caracteres",
+        msg: "Your password must be at least 6 or more characters",
         error: true
       });
       return;
@@ -36,23 +36,25 @@ const Login = () => {
     setAlerta({});
     try {
       const { data } = await axios.post("http://localhost:4000/api/user/login", {
-        email,  
-        password,
+        email,
+        password
       });
-      dispatch(loginSlice.actions.setUser({    
-        userID : data._id,
-        email: data.email,
-        token: data.token,
-        isLogged: true,
-        gamesArray:[]}))
-      console.log(data)
-      navigate("/private/")
+      dispatch(
+        loginSlice.actions.setUser({
+          userID: data._id,
+          email: data.email,
+          token: data.token,
+          isLogged: true,
+          gamesArray: []
+        })
+      );
+      console.log(data);
+      navigate("/private/");
       setAlerta({
         // aca extraemos el error que viene desde el servidor
         msg: data.msg,
         error: false
       });
-
     } catch (error) {
       setAlerta({
         // aca extraemos el error que viene desde el servidor

@@ -18,7 +18,7 @@ const Register = () => {
     // validando que todos los campos se completen
     if ([name, userName, email, birthday, password, repeatPassword].includes("")) {
       setAlerta({
-        msg: "Todos los campos son obligatorios",
+        msg: "All fields are required",
         error: true
       });
       return;
@@ -26,7 +26,7 @@ const Register = () => {
     // validando las contraseñas
     if (password !== repeatPassword) {
       setAlerta({
-        msg: "Las contraseñas no son iguales",
+        msg: "Passwords are not the same",
         error: true
       });
       return;
@@ -34,7 +34,7 @@ const Register = () => {
 
     if (password.length < 6) {
       setAlerta({
-        msg: "Las contraseña tiene que ser de mas de 6 caracteres",
+        msg: "Your password must be at least 6 or more characters",
         error: true
       });
       return;
