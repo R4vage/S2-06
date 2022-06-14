@@ -1,26 +1,29 @@
 import React from "react";
 import "./Card.css";
 import { useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux";
 
 const Card = (props) => {
 const navigate = useNavigate()
-
+const userGames = useSelector((state) => state.gamesArray);
+const isOwned = !!userGames.find(item => item.gameID === Number(props.steamAppID));
 
   function onClick (){
     navigate(`/games/${props.steamAppID}`)
   }
-  return (
-    <div className="conteiner-Card" onClick={()=>onClick()}>
+  return (<>
+    {props.steamAppID && <div className="conteiner-Card" onClick={()=>onClick()}>
       <div>
         <img
           className="img"
-          src={`https://steamcdn-a.akamaihd.net/steam/apps/${props.steam}/header.jpg`}
+          src={`https://steamcdn-a.akamaihd.net/steam/apps/${props.steamAppID}/header.jpg`}
           alt="image"
         />
       </div>
       <p className="text-card">{props.name}</p>
       
-      {props.isOwned?<button className="isOwnedButton">Instalar</button>:
+      {props.inLibrary? <button className="isOwnedButton">Instalar</button>: 
+      isOwned? <button className="isOwnedButton">Owned</button>:
       (Math.round(props.savings) ? (
         <div className="details">
           <p className="discount">{props.salePrice}</p>
@@ -32,8 +35,24 @@ const navigate = useNavigate()
       ))
       
       }
-    </div>
+    </div>}
+    </>
   );
 };
 
 export default Card;
+
+
+
+/* function UrlExists() {
+  var isImg = false
+  var http = new XMLHttpRequest();
+  http.open('HEAD', "https://steamcdn-a.akamaihd.net/steam/apps/469/header.jpg", false);
+  http.send();
+  if (http.status != 404)
+{       var isImg=true;
+       console.log(isImg)}
+  else
+   { 	var isImg=false
+      console.log(isImg)}}
+UrlExists() */

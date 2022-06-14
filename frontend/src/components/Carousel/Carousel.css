@@ -5,6 +5,9 @@
     width: 45%;
     margin-left:28%;
     position: relative!important;  
+    max-height: 60vh;
+    margin-block:0.5em;
+    box-shadow: rgba(77, 77, 77, 0.25) 0px 14px 28px, rgba(222, 222, 222, 0.22) 0px 10px 10px;
     
 }
 .alice-carousel__dots-item:not(.__custom):hover, .alice-carousel__dots-item:not(.__custom).__active{

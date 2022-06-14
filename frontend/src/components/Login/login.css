@@ -6,9 +6,9 @@
   background-position: center center;
   margin: auto;
   text-align: center;
-  margin-block: 10vh;
   border-radius: 25px;
   padding: 2em;
+  
 }
 
 .register-header {
@@ -37,11 +37,9 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  gap: 1em;
 }
-.control-form input,
-.control-form label {
-  width: 30vw;
-}
+
 .label {
   margin-right: 0.5em;
   border-radius: 5px;
@@ -60,11 +58,7 @@
   text-transform: uppercase;
   cursor: pointer;
 }
-@media (min-width: 768px) {
-  .container {
-    width: 50vw;
-  }
-}
+
 .link-login {
   text-decoration: none;
 }
@@ -78,3 +72,17 @@
 
   text-decoration: none;
 }
+
+
+  @media (min-width: 768px) {
+    .container {
+      width: 50vw;
+    }
+  }
+
+  
+@media (min-width: 1212px) {
+  .container { 
+    width: 30vw;
+
+  }}

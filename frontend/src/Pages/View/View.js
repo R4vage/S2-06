@@ -6,16 +6,15 @@ import { axiosDB } from "../../services";
 import { useSelector } from "react-redux";
 
 import "./View.css"
+import SearchBar from "../../components/SearchBar";
 
 function View() {
-    const [gameData, setGameData] = useState()
+    const [gameData, setGameData] = useState();
     const {steamAppId} = useParams();
-    const {addGame, alert} = useAddGame()
+    const {addGame, alert} = useAddGame();
     const userGames = useSelector((state) => state.gamesArray);
-    const isGame = !!userGames.find(item => item === steamAppId)
-    console.log(userGames)
-    
-    console.log(steamAppId)
+    const isGame = !!userGames.find(item => item.gameID === Number(steamAppId));
+
 
     const getGameData = async () => {
         try {
@@ -23,7 +22,6 @@ function View() {
             `/games/${steamAppId}`
           );
           setGameData(data[steamAppId].data)
-          console.log(data[steamAppId].data)
         } catch (error) {
             console.log(error)
          /*  setAlert({ msg: error.response.data.msg, error: true }); */
@@ -34,9 +32,10 @@ function View() {
       }, [])  
 
       if(!gameData){return <div> No hay juego</div>}
-      const description = gameData.detailed_description.replace(/<br>/gi,"")
+      const description = gameData.detailed_description.replace(/<br>/gi,"").replace(/<p>.*<\/p>/, "")
     return ( 
         <div className="View">
+          <SearchBar />
             <div className="View--titleSection">
               <h1>{gameData.name}</h1>
             </div>
