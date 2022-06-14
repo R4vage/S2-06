@@ -155,3 +155,19 @@ text-decoration: underline;
   color: red
 
 }
+
+@media  (min-width:762px){
+  .pusher{
+    display: none ;
+  }
+
+  .Navbar{
+  background-color: transparent;
+  box-shadow: none;
+  }
+
+
+
+
+
+}

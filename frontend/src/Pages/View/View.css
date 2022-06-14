@@ -1,7 +1,7 @@
 .View{
     background-color: #0C1E20;
     color: aliceblue;
-    margin-block: 4em;
+    margin-block: 1em;
 }
 
 
@@ -13,26 +13,7 @@ body{
     margin: 1.5em;
 }
 
-.dangerouslyFather img{ 
-    width: 80%;
-    border-radius: 15px;
-    align-self: center;
-    margin: 2em;    
-    
 
-}
-
-.alice-carousel__stage-item img{
-    box-shadow: rgba(77, 77, 77, 0.25) 0px 14px 28px, rgba(222, 222, 222, 0.22) 0px 10px 10px;
-    overflow-y: visible;
-    z-index: 12;
-}
-
-.dangerouslyFather{
-    margin: 1em;
-    display: flex;
-    flex-direction: column;
-}
 
 .View--carouselcontainer{
     position: relative;
@@ -73,7 +54,12 @@ body{
     border-radius: 7px;
     background-color: #a20202;
     width: 100%;
-    padding: 1em;
+    padding: 0.4em;
+    text-transform: uppercase;
+    color: aliceblue;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
 .View--pricecontainer{
@@ -102,3 +88,34 @@ body{
    margin-right: 0.3em;
 }
 
+.dangerouslyFather{
+    margin-inline: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dangerouslyFather img{ 
+    max-width: 80vw;
+    border-radius: 15px;
+    margin: 2em;   
+    width: 80%; 
+}
+
+.dangerouslyFather h1,  .dangerouslyFather h2, .dangerouslyFather h3{
+left: 0;
+margin-right: auto ;
+text-align: left;
+}
+
+.dangerouslyFather ul{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width:762px){
+    .dangerouslyFather {
+        margin-bottom: 2em;
+    }
+
+}

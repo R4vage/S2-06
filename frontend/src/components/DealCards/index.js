@@ -6,6 +6,7 @@ import "./DealCards.css";
 const DealsCard = () => {
   const [gameDeals, setGameDeals] = useState([]);
   const [page, setPage] = useState(0);
+  
 
   const nextPageHandler = () => {
     setPage((prevState) => prevState + 1);
@@ -19,16 +20,22 @@ const DealsCard = () => {
 
     console.log(page);
   };
+
+  
+
   useEffect(() => {
     const consultarApi = async () => {
       const url = `https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=5&pageNumber=${page}&onSale=1`;
-
+     
       const { data } = await axios(url);
-
+      console.log(data)
       setGameDeals(data);
     };
     consultarApi();
   }, [page]);
+
+
+    
 
   return (
     <>
@@ -47,13 +54,13 @@ const DealsCard = () => {
         <div className="container-dealsCard">
           {gameDeals.map((item) => (
             <Cards
-              steam={item.steamAppID}
               name={item.title}
-              key={item.id}
+              key={item.steamAppID}
               salePrice={item.salePrice}
               normalPrice={item.normalPrice}
               savings={item.savings}
               steamAppID={item.steamAppID}
+              altImg={item.thumb}
             />
           ))}
         </div>

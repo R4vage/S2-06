@@ -3,6 +3,12 @@ body {
 font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ 
+  padding: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 code {
@@ -16,4 +22,12 @@ code {
 
 :root{
   
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  
+  min-height: 100vh;
+
 }
