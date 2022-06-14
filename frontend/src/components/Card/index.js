@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 const Card = (props) => {
 const navigate = useNavigate()
 const userGames = useSelector((state) => state.gamesArray);
-const isOwned = !!userGames.find(item => item.gameID === Number(props.steamAppID));
+var isOwned = false
+if(userGames.length !==0) { isOwned = !!userGames.find(item => item.gameID === Number(props.steamAppID));}
+
 
   function onClick (){
     navigate(`/games/${props.steamAppID}`)
