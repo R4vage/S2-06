@@ -5,7 +5,7 @@ export const addGame = async (req, res) => {
   const {user, logged , body} = req;
   const gameID = body.gameID //Sacamos el game ID que viene en el body
   const gameName = body.gameName
-  const library = await Library.findOne({_id: user._id})  // Buscamos la biblioteca del usuario con el user ID dado por checkAuth
+  const library = await Library.findOne({userID: user._id})  // Buscamos la biblioteca del usuario con el user ID dado por checkAuth
   if (!library) {
     const error = new Error("Library not found"); //Si no la encontramos, tira error
     return res.status(400).json({ msg: error.message });
@@ -30,7 +30,7 @@ export const addGame = async (req, res) => {
 
 export const getLibrary = async (req, res) => {
     const {user, logged} = req;//Este user ya lo buscamos en la auth, no hace falta buscarlo de vuelta, sencillamente agarramos el user id decodeado que nos mando el middleware
-    const library = await Library.findOne({_id: user._id}).select("-userID -__v -_id")
+    const library = await Library.findOne({userID: user._id}).select("-userID -__v -_id")
     if (!library) {
       const error = new Error("Library not found");
       return res.status(400).json({ msg: error.message });
