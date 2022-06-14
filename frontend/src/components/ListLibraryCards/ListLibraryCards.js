@@ -10,8 +10,9 @@ function ListLibraryCards(props) {
                 steam={item.gameID}
                 name={item.gameName}
                 key={item.gameID}
-                steamAppID={item.steamAppID}
+                steamAppID={item.gameID}
                 isOwned={true}
+                inLibrary={true}
                 />
             ))}
         </div>

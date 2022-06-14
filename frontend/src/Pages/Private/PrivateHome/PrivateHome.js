@@ -13,6 +13,7 @@ function PrivateHome() {
     const [alert, setAlert] = useState();
     const [userGames, setUserGames] = useState()
     const dispatch = useDispatch();
+    console.log(userGames)
     const getLibrary = async () => {
       try {
         const { data } = await axiosDB(

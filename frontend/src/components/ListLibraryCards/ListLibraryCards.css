@@ -1,3 +1,6 @@
-.library .conteiner-Card{
-    background-color: red;
-  }
+.library{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    top: 0;
+}

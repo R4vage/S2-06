@@ -25,7 +25,6 @@ export const loginSlice = createSlice({
                 email: null,
                 token: null,
                 isLogged: false,
-                
             }
         },
         setLibrary: (state,action) =>{
@@ -34,6 +33,14 @@ export const loginSlice = createSlice({
                 gamesArray: action.payload
             }
         },
+        addGameToLibrary: (state,action) =>{
+
+            return{
+                ...state,
+                gamesArray:[...state.gamesArray, action.payload]
+
+            }
+        }
 
     }
 

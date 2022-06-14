@@ -69,7 +69,7 @@ const Register = () => {
   console.log(alerta);
   return (
     <>
-      <div className="container">
+      <div className="container-register">
         <div className="container-header">
           <div className="register-header">
             <img className="" src={logo} alt="logo" />

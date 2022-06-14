@@ -1,4 +1,4 @@
-.container {
+.container-register {
   background-image: url(../../assets/fullHDv2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -61,7 +61,7 @@
   text-transform: uppercase;
 }
 @media (min-width: 768px) {
-  .container {
+  .container-register {
     width: 50vw;
   }
 }
