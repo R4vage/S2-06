@@ -1,11 +1,11 @@
 import nodemailer from "nodemailer";
-import { transportVar } from "./.transportVar.js";
+import { transportVar2 } from "./.transportVar.js";
 
 export const emailToken = async (user) => {
   const { email, name, token } = user;
-  const transport = nodemailer.createTransport(transportVar);
+  const transport = nodemailer.createTransport(transportVar2);
   const info = await transport.sendMail({
-    from: '"GamaGames - User Accounts" <no-reply@gamagames.com>',
+    from: '"GamaGames - User Accounts" <gamagames@outlook.es>',
     to: email,
     subject: "GamaGames - Confirm your account",
     text: "Confirm your GamaGames account",
@@ -18,9 +18,9 @@ export const emailToken = async (user) => {
 
 export const emailForgot = async (user) => {
   const { email, name, token } = user;
-  const transport = nodemailer.createTransport(transportVar);
+  const transport = nodemailer.createTransport(transportVar2);
   const info = await transport.sendMail({
-    from: '"GamaGames - User Accounts" <no-reply@gamagames.com>',
+    from: '"GamaGames - User Accounts" <gamagames@outlook.es>',
     to: email,
     subject: "GamaGames - Password forgotten",
     text: "Please, change yout password",

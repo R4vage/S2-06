@@ -45,7 +45,17 @@
   padding: 0.5em;
 }
 
-.img {
+.card-img {
   max-width: 100%;
 }
-
+.container-install {
+  display: flex;
+  gap: 0.5em;
+}
+.install {
+  color: white;
+  margin: 0px;
+}
+.img-install {
+  transform: scale(0.8);
+}
