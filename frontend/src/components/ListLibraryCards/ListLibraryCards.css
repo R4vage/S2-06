@@ -1,6 +1,27 @@
-.library{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    top: 0;
+.library .conteiner-Card {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.library .conteiner-Card .card-img {
+  border-radius: 10px;
+  align-self: center;
+}
+.library {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  top: 0;
+}
+.container-sort {
+  display: flex;
+  gap: 0.5em;
+  margin-left: 1em;
+  align-items: center;
+}
+.sort {
+  color: white;
 }
