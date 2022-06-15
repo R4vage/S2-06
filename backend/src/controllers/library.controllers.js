@@ -33,6 +33,7 @@ export const getLibrary = async (req, res) => {
     const library = await Library.findOne({userID: user._id}).select("-userID -__v -_id")
     if (!library) {
       const error = new Error("Library not found");
+      console.log("library not found")
       return res.status(400).json({ msg: error.message });
     }
     res.json(library)
