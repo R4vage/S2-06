@@ -2,30 +2,28 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Card from "../../components/Card";
+import SearchBar from "../../components/SearchBar";
 
 
 function Search() {
     const [searchParams] = useSearchParams();
     const searchValue = searchParams.get("search");
     const [searchResults, setSearchResults] = useState()
-    console.log(searchValue)
     const consultarApi = async () => {
-        const url = `https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=10&pageNumber=1&onSale=1&title=${searchValue.toString()}`;
-    
+        const url = `https://www.cheapshark.com/api/1.0/deals?storeID=1&title=${searchValue.toString()}&pageSize=10&pageNumber=0`
         const { data } = await axios(url);
-        console.log(data)
         setSearchResults(data);
+        console.log(searchResults?.length)
+        console.log(searchResults)
     };
-
+  
     useEffect(() => {
         consultarApi()
-    }, [])
-  
-
-
+    }, [searchValue])
 
     return (
-        <div>
+        <>
+            <SearchBar />
             <div className="container-dealsCard">
                 {searchResults?.map((item) => (
                     <Card
@@ -39,7 +37,7 @@ function Search() {
                     />
                 ))}
             </div>
-        </div>
+        </>
 
       );
 }

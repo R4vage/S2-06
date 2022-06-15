@@ -10,7 +10,6 @@ const DealsCard = () => {
 
   const nextPageHandler = () => {
     setPage((prevState) => prevState + 1);
-    console.log(page);
   };
 
   const prevPageHandler = () => {
@@ -18,7 +17,6 @@ const DealsCard = () => {
       setPage((prevState) => prevState - 1);
     }
 
-    console.log(page);
   };
 
   
@@ -28,7 +26,6 @@ const DealsCard = () => {
       const url = `https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=5&pageNumber=${page}&onSale=1`;
      
       const { data } = await axios(url);
-      console.log(data)
       setGameDeals(data);
     };
     consultarApi();
@@ -55,7 +52,7 @@ const DealsCard = () => {
           {gameDeals.map((item) => (
             <Cards
               name={item.title}
-              key={item.steamAppID}
+              key={item.steamAppID+item.salePrice}
               salePrice={item.salePrice}
               normalPrice={item.normalPrice}
               savings={item.savings}
