@@ -1,0 +1,19 @@
+@media (min-width: 860px) {
+  .container-privateHome {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas:
+      "a b"
+      "a c";
+  }
+  .container-privateHome .pusher {
+    display: none;
+  }
+  .container-privateHome .Navbar {
+    grid-area: b;
+    position: relative;
+  }
+  .container-privateHome .Navbar--toggle {
+    display: none;
+  }
+}
