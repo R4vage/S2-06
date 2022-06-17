@@ -7,9 +7,11 @@ import communityIcon from "../../assets/icons/communityIcon.svg"
 import storeIcon from "../../assets/icons/storeIcon.svg"
 import "./Navbar.css"
 import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
 
 function Navbar() {
     const [isClosed, setIsClosed] = useState(true)
+    const userEmail = useSelector((state) => state.email);
     return ( 
     <>
     <div className="pusher"></div>
@@ -18,8 +20,7 @@ function Navbar() {
             <nav className={isClosed?"Navbar--toggle":"Navbar--toggle navOpen"}>
                 <div className="Navbar--userData">
                     <img className="Navbar--userHero" src={portrait} alt="Portrait Icon"/>
-                    <p className="Navbar--userName">Toto Perez</p>
-                    <p className="Navbar--userEmail">nombredeusuario@gmail.com</p>
+                    <p className="Navbar--userEmail">{userEmail}</p>
                 </div>
                 <ul className="Navbar--list">
                     <Link to={"/login"} onClick={()=>setIsClosed(!isClosed)}> <li > <img src={userIcon} alt="userIcon" />Login</li></Link>

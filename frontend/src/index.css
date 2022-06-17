@@ -31,3 +31,7 @@ code {
   min-height: 100vh;
 
 }
+
+.displaynone{
+  display: none;
+}

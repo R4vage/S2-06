@@ -12,28 +12,27 @@ import Navbar from "../../../components/Navbar";
 import "./PrivateHome.css";
 
 function PrivateHome() {
-  const auth = useSelector((state) => state.token);
-  const [alert, setAlert] = useState();
-  const [userGames, setUserGames] = useState();
-  const dispatch = useDispatch();
-  console.log(userGames);
-  const getLibrary = async () => {
-    try {
-      const { data } = await axiosDB(`/library`, setHeaders());
-      let arr = [];
-      data.product.map((item) =>
-        arr.push({ gameID: item.gameID, gameName: item.gameName })
-      );
-      dispatch(loginSlice.actions.setLibrary(arr));
-      setUserGames(arr);
-    } catch (error) {
-      setAlert({ msg: error.response.data.msg, error: true });
-    }
-  };
-  useEffect(() => {
-    getLibrary();
-  }, []);
-  // // poner dentro del return
+    const auth = useSelector((state) => state.token);
+    const [alert, setAlert] = useState();
+    const [userGames, setUserGames] = useState()
+    const dispatch = useDispatch();
+    const getLibrary = async () => {
+      try {
+        const { data } = await axiosDB(
+          `/library`, setHeaders()
+        );
+        let arr = []
+        data.product.map(item => arr.push({gameID:item.gameID, gameName:item.gameName}))
+        dispatch(loginSlice.actions.setLibrary(arr))
+        setUserGames(arr)
+          
+      } catch (error) {
+        setAlert({ msg: error.response.data.msg, error: true });
+      }
+    };
+        useEffect(() => {
+        getLibrary();
+    }, []);
 
   if (!auth) return <Navigate to="/login" />;
   return (

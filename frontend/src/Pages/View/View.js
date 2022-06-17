@@ -4,9 +4,7 @@ import Carousel from "../../components/Carousel/Carousel";
 import { useAddGame } from "../../hooks/useAddGame";
 import { axiosDB } from "../../services";
 import { useSelector } from "react-redux";
-
 import "./View.css"
-import SearchBar from "../../components/SearchBar";
 
 function View() {
     const [gameData, setGameData] = useState();
@@ -35,7 +33,6 @@ function View() {
       const description = gameData.detailed_description.replace(/<br>/gi,"").replace(/<p>.*<\/p>/, "")
     return ( 
         <div className="View">
-          <SearchBar />
             <div className="View--titleSection">
               <h1>{gameData.name}</h1>
             </div>
