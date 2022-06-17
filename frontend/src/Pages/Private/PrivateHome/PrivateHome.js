@@ -36,11 +36,9 @@ function PrivateHome() {
 
   if (!auth) return <Navigate to="/login" />;
   return (
-    <div className="container-privateHome">
-      <Sidebar />
-      <Navbar />
+
       <ListLibraryCards games={userGames} />
-    </div>
+
   );
 }
 

@@ -62,3 +62,35 @@
     display: block;
   }
 }
+
+.icon .imagen-sidebar path{
+  fill: #4f5b67;;
+}
+
+.Sidebar--li{
+  color: #4f5b67;
+  fill: #4f5b67;;
+}
+
+.selected {
+  color: white !important;
+  cursor: auto;
+  fill: white
+}
+
+.selected h4{
+
+  color: white !important;
+}
+
+.selected .icon .imagen-sidebar path{
+  fill: white;
+}
+
+.Sidebar--li:hover .icon .imagen-sidebar path{
+  fill: white;
+}
+.Sidebar--li:hover h4{
+
+  color: white !important;
+}
