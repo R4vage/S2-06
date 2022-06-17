@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
-import store from "../../assets/icons/store.svg";
-import library from "../../assets/icons/library.svg";
-import profile from "../../assets/icons/profile.svg";
+import {ReactComponent as Store}  from "../../assets/icons/store.svg";
+import {ReactComponent as Library} from "../../assets/icons/library.svg";
+import {ReactComponent as Profile}  from "../../assets/icons/profile.svg";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  const [isHomeSelected, setIsHomeSelected] = useState()
   return (
     <>
       <nav className="sidebar  ">
@@ -17,24 +18,27 @@ const Sidebar = () => {
 
         <ul className="menuSidebar">
           <Link className="elements-sidebar" elements-sidebar to={"/"}>
-            <li>
+            <li className="Sidebar--li">
               <div className="icon">
-                <img className="imagen-sidebar" src={store} alt="Icono store" />
+               <Store className="imagen-sidebar"/>
               </div>
               <h4 className="text-sidebar">Store</h4>
             </li>
           </Link>
 
-          <li>
-            <div className="icon">
-              <img className="imagen-sidebar" src={library} alt="Icono Library" />
-            </div>
-            <h4 className="text-sidebar">Library</h4>
-          </li>
-          <Link className="elements-sidebar" to={"profile"}>
-            <li>
+          <Link className="elements-sidebar" elements-sidebar to={"/private"} onClick={()=>setIsHomeSelected(true)}>
+            <li className={isHomeSelected?"Sidebar--li selected": "Sidebar--li"}>
               <div className="icon">
-                <img className="imagen-sidebar" src={profile} alt="Icono Profile" />
+                <Library className="imagen-sidebar"/>
+              </div>
+              <h4 className="text-sidebar">Library</h4>
+            </li>
+          </Link>
+
+          <Link className="elements-sidebar" to={"/private/profile"} onClick={()=>setIsHomeSelected(false)}>
+            <li className={!isHomeSelected?"Sidebar--li selected": "Sidebar--li"}>
+              <div className="icon">
+                <Profile className="imagen-sidebar"/>
               </div>
               <h4 className="text-sidebar">Profile</h4>
             </li>

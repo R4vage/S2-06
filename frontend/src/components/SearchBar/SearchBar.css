@@ -31,6 +31,8 @@
   border-right: 2px solid #E5E5E5;
   gap: 1em;
   margin-left: 0.5em;
+  width: 30%;
+  
 }
 
 .SearchBar--input--container input {
@@ -40,13 +42,12 @@
   background-color: #D9D9D9;
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
-
+  width: 100%;
+  
  
 }
 
-.SearchBar--SearchIcon {
-  
-}
+
 
 .SearchBar--button{
   border-radius: 15px;
@@ -66,4 +67,20 @@
   transform: scale(1.1);
 
 
+}
+
+@media (max-width:762px) {
+  .SearchBar--button{
+    display: none;
+  }
+  .SearchBar--input--container{
+    left: auto;
+    width: 100%;
+    border: none;
+  }
+  .SearchBar--input--container input{
+    width: 100%;
+
+  }
+  
 }
