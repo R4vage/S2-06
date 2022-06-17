@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import View from "../pages/View";
 import Search from "../pages/Search";
 import SearchBar from "../components/SearchBar";
+import Error from "../pages/Error";
 
 function PublicRouter() {
   return (
@@ -21,11 +22,35 @@ function PublicRouter() {
         <Route path="/forgot" element={<ForgotPassword />} />
         <Route path="/confirmed/:token" element={<Confirmed />} />
         <Route path="/forgot/:token" element={<NewPassword />}></Route>
-      </Routes>
-      <Routes>
-        <Route path="/" element={  <><SearchBar /><Home /></>} />
-        <Route path="/games/:steamAppId" element={<><SearchBar /><View /></>}></Route>
-        <Route path="/games" element={<><SearchBar /><Search /></>}></Route>
+
+        <Route
+          path="/"
+          element={
+            <>
+              <SearchBar />
+              <Home />
+            </>
+          }
+        />
+        <Route
+          path="/games/:steamAppId"
+          element={
+            <>
+              <SearchBar />
+              <View />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/games"
+          element={
+            <>
+              <SearchBar />
+              <Search />
+            </>
+          }
+        ></Route>
+        <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
     </>

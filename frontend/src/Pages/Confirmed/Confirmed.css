@@ -9,6 +9,7 @@
   margin-bottom: 10vh;
   border-radius: 25px;
   padding: 2em;
+  width: 100vw;
 }
 .title-confirm {
   background-color: green;
@@ -29,5 +30,11 @@
 @media (min-width: 768px) {
   .container-confirm {
     width: 50vw;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container-confirm {
+    width: 35vw;
   }
 }
