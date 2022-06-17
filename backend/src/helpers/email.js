@@ -44,7 +44,7 @@ export const emailToken = async (user) => {
     to: email,
     subject: "GamaGames - Confirm your account",
     text: "Confirm your GamaGames account",
-    html: emailTemplate(name, token)
+    html: emailTemplateConfirmed(name, token)
 
   });
 };
