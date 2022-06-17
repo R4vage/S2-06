@@ -9,20 +9,23 @@ import NewPassword from "../pages/NewPassword";
 import Footer from "../components/Footer";
 import View from "../pages/View";
 import Search from "../pages/Search";
+import SearchBar from "../components/SearchBar";
 
 function PublicRouter() {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route exact match path="/login" element={<UserLogin />} />
         <Route path="/register" element={<UserRegister />} />
         <Route path="/forgot" element={<ForgotPassword />} />
         <Route path="/confirmed/:token" element={<Confirmed />} />
         <Route path="/forgot/:token" element={<NewPassword />}></Route>
-        <Route path="/games/:steamAppId" element={<View />}></Route>
-        <Route path="/games" element={<Search />}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/" element={  <><SearchBar /><Home /></>} />
+        <Route path="/games/:steamAppId" element={<><SearchBar /><View /></>}></Route>
+        <Route path="/games" element={<><SearchBar /><Search /></>}></Route>
       </Routes>
       <Footer />
     </>

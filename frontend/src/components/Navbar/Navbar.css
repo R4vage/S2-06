@@ -34,9 +34,6 @@
     background: transparent;
     border: 0;
     cursor: pointer;
-    
-    
- 
   }
   
   .Navbar--hamburger,
@@ -142,6 +139,14 @@ text-decoration: underline;
     padding: 0.5em;
     cursor: pointer;
     z-index: 100;
+    transition: all 200ms ease-in-out;
+}
+
+.Navbar--list li:hover{ 
+  background-color: #0DA0B2;
+  transform: scale(1.1);
+  color: white;
+
 }
 
 
@@ -150,10 +155,14 @@ text-decoration: underline;
   color: red;
 }
 
-.Navbar--list li a:active{
+.Navbar--list li a{
   text-decoration: none;
-  color: red
+  color: red !important
 
+}
+a{
+  color: black;
+  text-decoration: none;
 }
 
 @media  (min-width:762px){
@@ -162,9 +171,12 @@ text-decoration: underline;
   .Navbar{
   background-color: transparent;
   box-shadow: none;
+  position: absolute;
   }
 
-
+  .Navbar--hamburger__container {
+    display: none;
+  }
 
 
 
