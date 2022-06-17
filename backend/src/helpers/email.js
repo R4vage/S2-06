@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
-import {transportVar, transportVar2 } from "./.transportVar.js";
+import { transportVar2 } from "./.transportVar.js";
 
-const emailTemplateConfirmed = ( name, token) => `<!DOCTYPE html>
+const emailTemplateConfirmed = (name, token) => `<!DOCTYPE html>
 <html lang="en">
   <head>
     ...
@@ -15,10 +15,11 @@ const emailTemplateConfirmed = ( name, token) => `<!DOCTYPE html>
     <p> Your account is almost ready, just click the button to confirm your account</p>
     <button><a href="http://localhost:3000/confirmed/${token}"> Click Here </a></button>
     <p> If you havent registered to GamaGames, please ignore this e-mail </p>
+   
   </body>
 </html>`;
 
-const emailTemplateForgot = ( name, token) => `<!DOCTYPE html>
+const emailTemplateForgot = (name, token) => `<!DOCTYPE html>
 <html lang="en">
   <head>
     ...
@@ -44,8 +45,8 @@ export const emailToken = async (user) => {
     to: email,
     subject: "GamaGames - Confirm your account",
     text: "Confirm your GamaGames account",
-    html: emailTemplateConfirmed(name, token)
 
+    html: emailTemplateConfirmed(name, token)
   });
 };
 
