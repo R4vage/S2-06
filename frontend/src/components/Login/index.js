@@ -3,8 +3,8 @@ import { useState } from "react";
 import Alerta from "../Alerta";
 import logo from "../../assets/logo.svg";
 import "./login.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { loginSlice } from "../../store";
 
@@ -14,7 +14,7 @@ const Login = () => {
   const [alerta, setAlerta] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const auth = useSelector((state) => state.token);
   const handleSubmit = async (e) => {
     e.preventDefault();
     // validando que todos los campos se completen
@@ -45,6 +45,7 @@ const Login = () => {
           email: data.email,
           token: data.token,
           isLogged: true,
+          userName: data.name,
           gamesArray: []
         })
       );
@@ -63,6 +64,9 @@ const Login = () => {
       });
     }
   };
+
+
+  if (auth) return <Navigate to="/private" />;
   const { msg } = alerta;
   return (
     <>

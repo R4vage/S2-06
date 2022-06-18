@@ -3,6 +3,7 @@ import {configureStore, createSlice} from "@reduxjs/toolkit"
 
 const initialState = localStorage.getItem("loginState")? JSON.parse(localStorage.getItem("loginState")):{
     userID : null,
+    userName: null,
     email: null,
     token: null,
     isLogged: false,
@@ -21,6 +22,7 @@ export const loginSlice = createSlice({
             localStorage.removeItem("loginState");
             return{
                 gamesArray:[],
+                userName: null,
                 userID : null,
                 email: null,
                 token: null,

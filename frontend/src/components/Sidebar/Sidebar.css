@@ -1,20 +1,8 @@
-.imagen-sidebar {
+.sidebar {
   display: none;
 }
-.text-sidebar {
-  display: none;
-}
-.menuSidebar li {
-  list-style: none;
-}
-.sidebar-Header {
-  display: none;
-}
-.logo-header {
-  text-transform: uppercase;
-  color: #ffffff;
-}
-@media (min-width: 860px) {
+
+@media (min-width: 762px) {
   .sidebar {
     grid-area: a;
     height: 2fr;
@@ -28,6 +16,7 @@
     display: flex;
     gap: 0.5em;
     border-bottom: 1px solid;
+    margin: 1em;
   }
   .logo-header {
     text-transform: uppercase;

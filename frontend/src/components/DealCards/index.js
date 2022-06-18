@@ -3,10 +3,11 @@ import axios from "axios";
 import Cards from "../Card";
 import "./DealCards.css";
 
+
 const DealsCard = () => {
   const [gameDeals, setGameDeals] = useState([]);
   const [page, setPage] = useState(0);
-  
+
 
   const nextPageHandler = () => {
     setPage((prevState) => prevState + 1);
@@ -24,16 +25,21 @@ const DealsCard = () => {
   useEffect(() => {
     const consultarApi = async () => {
       const url = `https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=5&pageNumber=${page}&onSale=1`;
-     
-      const { data } = await axios(url);
+
+     setGameDeals("loading")
+     try{ const { data } = await axios(url);
       setGameDeals(data);
+    } catch(error) {console.log(error)}
     };
     consultarApi();
   }, [page]);
 
 
     
-
+ if(gameDeals === "loading"){return( 
+    <div className="loadingContainer">
+        <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>)}
   return (
     <>
       <div className="container-deals">

@@ -8,10 +8,12 @@ import storeIcon from "../../assets/icons/storeIcon.svg"
 import "./Navbar.css"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
+import SmallProfile from "../SmallProfile"
 
 function Navbar() {
     const [isClosed, setIsClosed] = useState(true)
     const userEmail = useSelector((state) => state.email);
+    const userName = useSelector((state) => state.userName);
     return ( 
     <>
     <div className="pusher"></div>
@@ -20,6 +22,7 @@ function Navbar() {
             <nav className={isClosed?"Navbar--toggle":"Navbar--toggle navOpen"}>
                 <div className="Navbar--userData">
                     <img className="Navbar--userHero" src={portrait} alt="Portrait Icon"/>
+                    <p className="Navbar--userName">{userName}</p>
                     <p className="Navbar--userEmail">{userEmail}</p>
                 </div>
                 <ul className="Navbar--list">
@@ -30,6 +33,7 @@ function Navbar() {
                 </ul>
             </nav>
             <img src={logo} className="Navbar--logo" alt="Logo"/>
+            <SmallProfile email={userEmail} name={userName}/>
     </header>
     </> );
 }

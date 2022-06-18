@@ -6,7 +6,7 @@
 
 .Navbar{
     height: 4em;
-    background-color: FFFFFF;
+    background-color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -105,7 +105,12 @@
     z-index: 100;
 }
 .Navbar--userData p{
-    margin: 0.5em;
+    margin: 0.2em;
+}
+
+.Navbar--userData
+.Navbar--userName{
+  margin-top: 1rem ;
 }
 
 .Navbar--userHero{
@@ -116,6 +121,8 @@
 .Navbar--userEmail{
 text-decoration: underline;
 }
+
+
 
 .Navbar--list{
     list-style: none;
@@ -150,16 +157,7 @@ text-decoration: underline;
 }
 
 
-.Navbar--list li img{
-  fill: red;
-  color: red;
-}
 
-.Navbar--list li a{
-  text-decoration: none;
-  color: red !important
-
-}
 a{
   color: black;
   text-decoration: none;
@@ -176,6 +174,12 @@ a{
 
   .Navbar--hamburger__container {
     display: none;
+  }
+
+  .Navbar--toggle {display: none;}
+
+  .Navbar--logo{
+    transform: scale(1.4);
   }
 
 
