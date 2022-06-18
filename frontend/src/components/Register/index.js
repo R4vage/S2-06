@@ -4,6 +4,8 @@ import Alerta from "../Alerta";
 import axios from "axios";
 import logo from "../../assets/logo.svg";
 import "./register.css";
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Register = () => {
   const [name, setName] = useState("");
   const [userName, setUserName] = useState("");
@@ -12,7 +14,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [alerta, setAlerta] = useState({});
-
+  const auth = useSelector((state) => state.token);
   const handleSubmit = async (e) => {
     e.preventDefault();
     // validando que todos los campos se completen
@@ -64,9 +66,8 @@ const Register = () => {
       });
     }
   };
-
+  if (auth) return <Navigate to="/private" />;
   const { msg } = alerta;
-  console.log(alerta);
   return (
     <>
       <div className="container-register">

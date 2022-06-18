@@ -10,13 +10,6 @@ function SearchBar() {
   function handleSearchClick() {
     navigate(`/games?search=${searchRef.current.value}`);
   }
-
-/*   function handleAllGamesClick () {
-         `https://www.cheapshark.com/api/1.0/deals?storeID=1&sortBy=title`
-  } */
-
-
-
     return (
         <div className="SearchBar--background">
             <div className="SearchBar">
@@ -25,9 +18,9 @@ function SearchBar() {
                     <input placeholder="Search a game" id="search" name="search" ref={searchRef} 
                     onKeyPress={(e) => {if (e.key === "Enter") {handleSearchClick()}}}/>
                 </div>
-                <h3 className="SearchBar--button">All Games</h3>
-                <h3 className="SearchBar--button">News</h3>
-                <h3 className="SearchBar--button">Shop</h3>
+                <h3 className="SearchBar--button" onClick={()=>navigate("/games?search= ")}>All Games</h3>
+                <h3 className="SearchBar--button" >News</h3>
+                <h3 className="SearchBar--button" onClick={()=>navigate("/")}>Shop</h3>
                 <h3 className="SearchBar--button">Categories</h3>
             </div>
         </div>

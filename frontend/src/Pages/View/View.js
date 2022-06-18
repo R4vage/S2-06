@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
 import { useAddGame } from "../../hooks/useAddGame";
 import { axiosDB } from "../../services";
@@ -11,10 +11,12 @@ function View() {
     const {steamAppId} = useParams();
     const {addGame, alert} = useAddGame();
     const userGames = useSelector((state) => state.gamesArray);
+    const navigate = useNavigate()
     const isGame = !!userGames.find(item => item.gameID === Number(steamAppId));
 
 
     const getGameData = async () => {
+        setGameData("loading")
         try {
           const { data } = await axiosDB(
             `/games/${steamAppId}`
@@ -29,6 +31,11 @@ function View() {
         getGameData()
       }, [])  
 
+
+      if(gameData === "loading"){return( 
+        <div className="loadingContainer">
+            <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>)}
       if(!gameData){return <div> No hay juego</div>}
       const description = gameData.detailed_description.replace(/<br>/gi,"").replace(/<p>.*<\/p>/, "")
     return ( 
@@ -57,7 +64,7 @@ function View() {
                       }
                       </div>
                     </div>
-                    {isGame? <button className="View--buyButton">In Library</button>
+                    {isGame? <button className="View--buyButton" onClick={()=> navigate("/private/")}>In Library</button>
                       :<button className="View--buyButton" onClick={()=>addGame(Number(steamAppId), gameData.name)}>Buy</button>}
                   </div>
                 </div>

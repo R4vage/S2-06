@@ -20,11 +20,18 @@ const DealsCard = () => {
   useEffect(() => {
     const consultarApi = async () => {
       const url = `https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=5&pageNumber=${page}&sortBy=metacritic`;
+      setGameRating("loading")
       const { data } = await axios(url);
       setGameRating(data);
     };
     consultarApi();
   }, [page]);
+
+
+  if(gameRating === "loading"){return( 
+    <div className="loadingContainer">
+        <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>)}
   return (
     <>
       <div className="container-rating">

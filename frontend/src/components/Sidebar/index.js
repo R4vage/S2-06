@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import {ReactComponent as Store}  from "../../assets/icons/store.svg";
 import {ReactComponent as Library} from "../../assets/icons/library.svg";
@@ -7,10 +7,20 @@ import {ReactComponent as Profile}  from "../../assets/icons/profile.svg";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  
+  const location = useLocation()
   const [isHomeSelected, setIsHomeSelected] = useState()
+  useEffect(() => {
+    setIsHomeSelected(location.pathname)
+  }, [location.pathname])
+  console.log(location.pathname)
+  console.log(location.pathname.includes("private"))
+
+  
+  
   return (
     <>
-      <nav className="sidebar  ">
+      <nav className="sidebar">
         <div className="sidebar-Header">
           <img className="imageLogo" src={logo} alt="Imagenes Gama" />
           <h4 className="logo-header">Gama Games</h4>
@@ -26,8 +36,8 @@ const Sidebar = () => {
             </li>
           </Link>
 
-          <Link className="elements-sidebar" elements-sidebar to={"/private"} onClick={()=>setIsHomeSelected(true)}>
-            <li className={isHomeSelected?"Sidebar--li selected": "Sidebar--li"}>
+          <Link className="elements-sidebar" elements-sidebar to={"/private"} >
+            <li className={!(isHomeSelected?.includes("private/profile"))?"Sidebar--li selected": "Sidebar--li"}>
               <div className="icon">
                 <Library className="imagen-sidebar"/>
               </div>
@@ -35,8 +45,8 @@ const Sidebar = () => {
             </li>
           </Link>
 
-          <Link className="elements-sidebar" to={"/private/profile"} onClick={()=>setIsHomeSelected(false)}>
-            <li className={!isHomeSelected?"Sidebar--li selected": "Sidebar--li"}>
+          <Link className="elements-sidebar" to={"/private/profile"} >
+            <li className={(isHomeSelected?.includes("private/profile"))?"Sidebar--li selected": "Sidebar--li"}>
               <div className="icon">
                 <Profile className="imagen-sidebar"/>
               </div>
