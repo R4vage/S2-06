@@ -12,17 +12,11 @@ function OnClickCloseNavigate(url){
     setIsOpen(false)
 }
 
-<<<<<<< HEAD
 
     return ( 
         <div className="SmallProfile">
              <div className={isOpen?"SmallProfile--Nav openNav":" SmallProfile--Nav"}>
                 <h3 className="SmallProfile--exit" onClick={()=>setIsOpen(false)}>X</h3>
-=======
-    return ( 
-        <div className="SmallProfile">
-             <div className={isOpen?"SmallProfile--Nav":"closedNav SmallProfile--Nav"}>
->>>>>>> 22081799f34537fd12529a33cbee7d9f250c60fd
                 <img src={portrait} className="SmallProfile--nav--icon"/>
                 <p className="SmallProfile--name">{props?.name}</p>
                 <p className="SmallProfile--email">{props?.email}</p>
