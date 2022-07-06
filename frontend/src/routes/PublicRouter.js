@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 import View from "../pages/View";
 import Search from "../pages/Search";
 import SearchBar from "../components/SearchBar";
-import Error from "../pages/Error";
+
 
 function PublicRouter() {
   return (
@@ -50,7 +50,7 @@ function PublicRouter() {
             </>
           }
         ></Route>
-        <Route path="*" element={<Error />} />
+ 
       </Routes>
       <Footer />
     </>

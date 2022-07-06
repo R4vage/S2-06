@@ -5,6 +5,7 @@ import { useAddGame } from "../../hooks/useAddGame";
 import { axiosDB } from "../../services";
 import { useSelector } from "react-redux";
 import "./View.css"
+import Swal from "sweetalert2"
 
 function View() {
     const [gameData, setGameData] = useState();
@@ -13,6 +14,29 @@ function View() {
     const userGames = useSelector((state) => state.gamesArray);
     const navigate = useNavigate()
     const isGame = !!userGames.find(item => item.gameID === Number(steamAppId));
+    function succesfulAlert (){
+      Swal.fire({
+        icon: 'success',
+        title: "Game added succesfully",
+        showClass: {
+          popup: 'swal2-show',
+          backdrop: 'swal2-backdrop-show',
+          icon: 'swal2-icon-show'
+        },
+        hideClass:{
+          popup: 'swal2-hide',
+          backdrop: 'swal2-backdrop-hide',
+          icon: 'swal2-icon-hide'
+        },
+
+      })
+    } 
+
+    function buyGame (){
+      addGame(Number(steamAppId), gameData.name);
+      succesfulAlert();
+
+    }
 
 
     const getGameData = async () => {
@@ -65,7 +89,7 @@ function View() {
                       </div>
                     </div>
                     {isGame? <button className="View--buyButton" onClick={()=> navigate("/private/")}>In Library</button>
-                      :<button className="View--buyButton" onClick={()=>addGame(Number(steamAppId), gameData.name)}>Buy</button>}
+                      :<button className="View--buyButton" onClick={()=>buyGame()}>Buy</button>}
                   </div>
                 </div>
             </div>

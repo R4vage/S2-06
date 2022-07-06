@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import { transportVar2 } from "./.transportVar.js";
+import {transportVar, transportVar2 } from "./.transportVar.js";
 
 const emailTemplateConfirmed = (name, token) => `<!DOCTYPE html>
 <html lang="en">
