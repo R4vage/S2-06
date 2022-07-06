@@ -7,8 +7,6 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginSlice } from "../../../store";
 import ListLibraryCards from "../../../components/ListLibraryCards";
-import Sidebar from "../../../components/Sidebar";
-import Navbar from "../../../components/Navbar";
 import "./PrivateHome.css";
 
 function PrivateHome() {

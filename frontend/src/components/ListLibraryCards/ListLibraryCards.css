@@ -37,3 +37,34 @@
 .sort {
   color: white;
 }
+
+.Library--search__input{
+  all: none;
+  border: none;
+  background-color: aliceblue;
+  border-radius: 10px;
+  padding: 0.8em;
+ 
+  width: 100%;
+}
+
+.Library--search{
+  background-color: aliceblue;
+  justify-self: start;
+  width: 40%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+  margin-block: 1em;
+  height: 3em;
+}
+
+.NoGames{
+  color: white;
+}
+
+.Private--Cross{
+  height: 100%;
+  padding: 0;
+}

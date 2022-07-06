@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Card from "../../components/Card";
-import SearchBar from "../../components/SearchBar";
 import arrow from "../../assets/play.png"
 import "./Search.css"
+import {ReactComponent as SortArrow}  from "../../assets/icons/sortByArrow.svg";
+import {ReactComponent as Arrow}  from "../../assets/icons/arrow.svg";
 
 
 function Search() {
@@ -14,10 +15,13 @@ function Search() {
     const [page , setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(false)
     const [pageList, setPageList] = useState()
+    const [sortBy, setSortBy] = useState("Metacritic")
+    const [sortDesc, setSortDesc] = useState(0)
     
     const consultarApi = async () => {
-        const url = `https://www.cheapshark.com/api/1.0/deals?storeID=1&title=${searchValue.toString()}&pageSize=10&pageNumber=${page-1}`
+        const url = `https://www.cheapshark.com/api/1.0/deals?storeID=1&pageSize=10&pageNumber=${page-1}&sortBy=${sortBy}&steamworks=true&desc=${sortDesc}&title=${searchValue.toString()}`
         setSearchResults("loading")
+        console.log(url)
         try{const { data, headers } = await axios(url)
         setTotalPages(headers[`x-total-page-count`])
         setSearchResults(data);
@@ -33,16 +37,17 @@ function Search() {
         setPageList(list)
         }
 
-
+        useEffect(() => {
+            setPage(1)
+        }, [searchValue])
 
     useEffect(() => {
         consultarApi()
         listPage()
-    }, [searchValue, page, totalPages])
+        
+    }, [searchValue, page, totalPages, sortBy, searchParams, sortDesc])
 
-    useEffect(() => {
-        setPage(1)
-    }, [searchValue])
+
 
     if(searchResults === "loading"){return( 
     <div className="loadingContainer">
@@ -53,6 +58,18 @@ function Search() {
 
     return (
         <>
+            <div className="Search--sortByContainer">
+                <select name="sortBy" className="Search--sortBy" defaultValue={sortBy}  onChange={e => {setSortBy((e.target.value)); setPage(1)}}>
+                    <option className="Search--sortBy__option" value="Title">Title</option>
+                    <option className="Search--sortBy__option" value="Metacritic" >Metacritic</option>
+                    <option className="Search--sortBy__option" value="Price">Price</option>
+                    <option className="Search--sortBy__option" value="Savings">Savings</option>
+                    <option className="Search--sortBy__option" value="Release">Release</option>
+                    <option className="Search--sortBy__option" value="Deal Rating">Deal Rating</option>
+                </select>
+                <SortArrow className="sortArrows sortArrowsUp" onClick={()=>setSortDesc(0)}/>
+                <SortArrow className="sortArrows sortArrowsDown" onClick={()=>setSortDesc(1)}/>
+            </div>
             <div className="container-dealsCard">
                 {(searchResults!=="loading")&&searchResults?.map((item) => (
                     <Card
@@ -67,10 +84,9 @@ function Search() {
                 ))}
             </div>
             <div className="Search--listButtons">
-                <img src={arrow} className={(page<2)?"displaynone":"Search__arrows leftArrow"} onClick={() =>(page>1) && setPage(page-1)}/>
-                
+                <Arrow className={(page<2)?"displaynone":"Search__arrows leftArrow"} onClick={() =>(page>1) && setPage(page-1)}/>
                 {pageList?.map((i) => (<button key={i*totalPages} onClick={() => setPage(i)} className={(i===page)?"landing--listButtons__numbers landing--listButtons__numbers__selected":(i<1 || i>totalPages)? "hidden" : "landing--listButtons__numbers"} >{i}</button>))}
-                <img src={arrow} className={(page > totalPages-1)?"displaynone":"Search__arrows rightArrow"} onClick={() =>  setPage(page+1)}/>
+                <Arrow className={(page > totalPages-1)?"displaynone":"Search__arrows rightArrow"} onClick={() =>  setPage(page+1)}/>
             </div>
         </>
 

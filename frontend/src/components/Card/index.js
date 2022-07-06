@@ -3,6 +3,7 @@ import "./Card.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import install from "../../assets/icons/install.svg";
+import genericImg from "../../assets/ResizedGenericImg.png"
 
 const Card = (props) => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Card = (props) => {
   if (userGames?.length !== 0) {
     isOwned = !!userGames?.find((item) => item.gameID === Number(props.steamAppID));
   }
+
 
   function onClick() {
     navigate(`/games/${props.steamAppID}`);
@@ -23,7 +25,11 @@ const Card = (props) => {
             <img
               className="card-img"
               src={`https://steamcdn-a.akamaihd.net/steam/apps/${props.steamAppID}/header.jpg`}
-              alt="image"
+              alt={props.name}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = false; // previene que se vuelva a llamar si falla de nuevo. Ahi recien ve el texto alternativo
+                currentTarget.src=genericImg;
+              }}
             />
           </div>
           <p className="text-card">{props.name}</p>
@@ -37,12 +43,12 @@ const Card = (props) => {
             <button className="isOwnedButton">Owned</button>
           ) : Math.round(props.savings) ? (
             <div className="details">
-              <p className="discount">{props.salePrice}</p>
-              <p className="price">{props.normalPrice}</p>
+              <p className="discount">{props.salePrice}$</p>
+              <p className="price">{props.normalPrice}$</p>
               <p className="percentage">-{Math.round(props.savings)}%</p>
             </div>
           ) : (
-            <p className="discount">{props.normalPrice}</p>
+            <p className="discount">{props.normalPrice}$</p>
           )}
         </div>
       )}

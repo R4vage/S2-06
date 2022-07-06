@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.5em;
-    margin-bottom: 1em;
+    margin: 2em;
 }
 
 .Search__arrows  {
@@ -160,4 +160,56 @@ color: white;
     100% {
       transform: rotate(360deg);
     }
+  }
+
+  .Search--sortByContainer{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 2em;
+    
+  } 
+
+  .Search--sortByContainer select{
+    all: none;
+    border-radius:10px ;
+    padding: 1em;
+    overflow: hidden;
+    font-family: "Roboto",sans-serif;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 10em;
+    display: inline-block;
+    background-image:
+      linear-gradient(45deg, transparent 50%, white 50%),
+      linear-gradient(135deg, white 50%, transparent 50%),
+      linear-gradient(to right, #0DA0B2, #0DA0B2);
+    background-position:
+      calc(100% - 20px) calc(1em + 6px),
+      calc(100% - 15px) calc(1em + 6px),
+      100% 0;
+    background-size:
+      5px 5px,
+      5px 5px,
+      3em 4em;
+    background-repeat: no-repeat;
+    margin-right: 1em;
+    cursor: pointer;
+  }
+
+  .sortArrows {
+    stroke: white;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+  }
+
+  .sortArrowsDown{
+    transform: rotate(180deg);
+  }
+
+  .sortArrowsUp:hover{
+    transform: scale(1.1);
+  }
+  .sortArrowsDown:hover{
+    transform: rotate(180deg) scale(1.1);
   }

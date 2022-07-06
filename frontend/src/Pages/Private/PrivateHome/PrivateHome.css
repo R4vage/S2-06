@@ -1,10 +1,11 @@
-@media (min-width: 860px) {
+@media (min-width: 762px) {
   .container-privateHome {
     display: grid;
     grid-template-columns: 300px 1fr;
     grid-template-areas:
       "a b"
       "a c";
+      grid-template-rows: 4em 100%;
   }
   .container-privateHome .pusher {
     display: none;

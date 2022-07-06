@@ -1,20 +1,46 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
 import { useAddGame } from "../../hooks/useAddGame";
 import { axiosDB } from "../../services";
 import { useSelector } from "react-redux";
 import "./View.css"
+import Swal from "sweetalert2"
 
 function View() {
     const [gameData, setGameData] = useState();
     const {steamAppId} = useParams();
     const {addGame, alert} = useAddGame();
     const userGames = useSelector((state) => state.gamesArray);
+    const navigate = useNavigate()
     const isGame = !!userGames.find(item => item.gameID === Number(steamAppId));
+    function succesfulAlert (){
+      Swal.fire({
+        icon: 'success',
+        title: "Game added succesfully",
+        showClass: {
+          popup: 'swal2-show',
+          backdrop: 'swal2-backdrop-show',
+          icon: 'swal2-icon-show'
+        },
+        hideClass:{
+          popup: 'swal2-hide',
+          backdrop: 'swal2-backdrop-hide',
+          icon: 'swal2-icon-hide'
+        },
+
+      })
+    } 
+
+    function buyGame (){
+      addGame(Number(steamAppId), gameData.name);
+      succesfulAlert();
+
+    }
 
 
     const getGameData = async () => {
+        setGameData("loading")
         try {
           const { data } = await axiosDB(
             `/games/${steamAppId}`
@@ -29,6 +55,11 @@ function View() {
         getGameData()
       }, [])  
 
+
+      if(gameData === "loading"){return( 
+        <div className="loadingContainer">
+            <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>)}
       if(!gameData){return <div> No hay juego</div>}
       const description = gameData.detailed_description.replace(/<br>/gi,"").replace(/<p>.*<\/p>/, "")
     return ( 
@@ -57,8 +88,8 @@ function View() {
                       }
                       </div>
                     </div>
-                    {isGame? <button className="View--buyButton">In Library</button>
-                      :<button className="View--buyButton" onClick={()=>addGame(Number(steamAppId), gameData.name)}>Buy</button>}
+                    {isGame? <button className="View--buyButton" onClick={()=> navigate("/private/")}>In Library</button>
+                      :<button className="View--buyButton" onClick={()=>buyGame()}>Buy</button>}
                   </div>
                 </div>
             </div>
